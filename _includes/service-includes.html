@@ -1,0 +1,22 @@
+{%- comment -%}
+  _includes/service-includes.html
+  The "What's included" list plus the closing line for ONE service.
+  Used three ways on the Services page (side-by-side, wide band,
+  panel), so it lives here once instead of being written three times.
+
+  The page passes a whole service in:  service=service
+  and this file reads it as include.service.
+{%- endcomment -%}
+{%- assign s = include.service -%}
+<h3 class="label">What's included</h3>
+<ul class="includes-list">
+  {%- for item in s.includes %}
+  <li>
+    <strong>{{ item.name }}</strong>
+    {%- if item.detail %}
+    <span>{{ item.detail }}</span>
+    {%- endif %}
+  </li>
+  {%- endfor %}
+</ul>
+<p class="service-closing">{{ s.closing }}</p>

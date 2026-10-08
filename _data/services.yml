@@ -1,0 +1,139 @@
+# Services, written once and used in two places:
+#   Home page: title + summary (the overview cards)
+#   Services page: everything below (Alex's full copy)
+# "id" becomes the anchor link, e.g. /services/#ior
+#
+# Fields:
+#   summary   short line for the Home cards (Geraldine's condensed version)
+#   intro     opening paragraph(s), Alex's words
+#   includes  list; each item has a name and an optional detail line
+#   closing   final "our goal" paragraph, Alex's words
+#   image     optional photo for the Services page (file in /images/)
+#   alt       description of that photo for screen readers and Google
+#   layout    "wide" for horizontal photos (full-width band);
+#             leave it out for vertical photos (photo beside text).
+#             A service with no image becomes a framed panel.
+#
+# The ">-" symbol lets a long paragraph wrap across lines in this file
+# while still printing as one paragraph on the site.
+#
+# Code-controlled (not in the CMS), so Geraldine maintains this file.
+
+- id: ior
+  title: Inspector of Record (IOR) Services
+  summary: Inspection and documentation on HCAI-regulated healthcare projects, from first framing inspection through closeout.
+  image: alexwithipadsmiling.webp
+  alt: Alex Antz documenting inspection results on a tablet at a healthcare construction site
+  intro:
+    - >-
+      Our Inspector of Record (IOR) services provide thorough, reliable
+      inspection and documentation throughout healthcare construction projects.
+      We help ensure that work is performed in accordance with approved
+      construction documents, applicable California building codes, and HCAI
+      requirements.
+  includes:
+    - name: Specialized Healthcare Inspections
+      detail: Inspection of hospital and healthcare construction projects in accordance with HCAI requirements.
+    - name: Structural & Architectural Inspections
+      detail: Verification of structural, architectural, and building components against approved plans and specifications.
+    - name: Mechanical, Electrical & Plumbing Inspections
+      detail: Inspection of MEP systems and installations for compliance with approved documents and applicable codes.
+    - name: Fire & Life Safety Inspections
+      detail: Verification of fire-resistive construction, firestopping, fire alarm, sprinkler, smoke control, and other life-safety systems.
+    - name: Inspection Documentation
+      detail: Accurate reporting, daily inspection records, testing documentation, and communication of deficiencies.
+    - name: Special Inspection Coordination
+      detail: Coordination with special inspectors, testing agencies, contractors, and project teams to help maintain compliance and quality.
+    - name: Code & Plan Compliance
+      detail: Identification of discrepancies between field conditions and approved construction documents, with clear communication to the project team.
+    - name: Project Closeout Support
+      detail: Assistance with inspection records, outstanding deficiencies, testing documentation, and final project requirements.
+  closing: >-
+    Our goal is to provide consistent field oversight, accurate documentation,
+    and clear communication while helping contractors, owners, and design teams
+    successfully navigate the requirements of complex healthcare construction
+    projects.
+
+- id: construction-management
+  title: Construction Management
+  summary: Schedule, budget, and quality oversight across every phase, working alongside owners, contractors, and design teams.
+  intro:
+    - >-
+      We provide comprehensive construction management services designed to
+      keep projects on schedule, within budget, and built to the highest
+      standards. From planning and coordination to inspections and project
+      closeout, we work closely with owners, contractors, architects,
+      engineers, and subcontractors to ensure every phase of construction is
+      properly managed.
+    - >-
+      We identify potential issues early, improve communication between
+      project teams, and help ensure that construction proceeds efficiently
+      and according to the approved plans and requirements.
+  includes:
+    - name: Project coordination
+    - name: Scheduling
+    - name: Quality control
+    - name: Code and specification compliance
+    - name: Subcontractor coordination
+    - name: Progress monitoring
+    - name: Inspection support
+    - name: Project closeout
+  closing: >-
+    Whether it's a commercial, healthcare, institutional, or other complex
+    construction project, our goal is to provide experienced oversight and
+    practical solutions that help deliver a successful project from start to
+    finish.
+
+- id: plan-review
+  title: Commercial Plan Review
+  summary: Code issues, coordination conflicts, and constructability concerns caught on paper, before they become costly in the field.
+  image: alexplans2.webp
+  alt: Alex Antz reviewing construction drawings with two project team members on a hospital site
+  intro:
+    - >-
+      We provide thorough commercial plan review services to help ensure
+      construction plans are accurate, code-compliant, and ready for permitting
+      and construction. Our reviews focus on identifying potential code issues,
+      coordination conflicts, and constructability concerns before they become
+      costly problems in the field.
+    - >-
+      Reviews emphasize applicable building codes, standards, and project
+      requirements across every discipline.
+  includes:
+    - name: Architectural plans
+    - name: Structural plans
+    - name: Mechanical plans
+    - name: Electrical plans
+    - name: Plumbing plans
+    - name: Fire and life-safety plans
+  closing: >-
+    Our goal is simple: identify issues early, reduce delays and rework, and
+    help your project move through the approval and construction process more
+    efficiently.
+
+- id: consulting
+  title: Construction Consulting
+  summary: Field-tested guidance on compliance, deficiencies, and troubleshooting for owners, contractors, and project teams.
+  intro:
+    - >-
+      Our construction consulting services provide reliable expertise and
+      practical solutions throughout every stage of a construction project. We
+      help owners, contractors, and project teams navigate complex construction
+      requirements, identify potential issues, and maintain quality, safety,
+      and compliance.
+    - >-
+      From project planning and inspections to code compliance, quality
+      control, and construction coordination, we work closely with our clients
+      to help projects stay on track and meet applicable standards.
+  includes:
+    - name: Construction inspections and quality control
+    - name: Code and compliance consulting
+    - name: Project coordination and technical support
+    - name: Construction document and plan review
+    - name: Deficiency identification and resolution
+    - name: Special inspection support
+    - name: Project troubleshooting and field consultation
+    - name: Owner and contractor representation
+  closing: >-
+    Our goal is to provide knowledgeable guidance, identify problems before
+    they become costly, and help deliver successful projects with confidence.

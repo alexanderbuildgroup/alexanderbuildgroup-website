@@ -1,0 +1,21 @@
+{%- comment -%}
+  _includes/nav.html
+  Builds the menu from _data/navigation.yml.
+
+  The for loop below repeats the <li> once per entry in the YAML list.
+  The if check compares the current page to each link, so the active
+  one gets class="is-active" and aria-current="page".
+{%- endcomment -%}
+<nav id="site-nav" class="site-nav" aria-label="Main">
+  <ul>
+    {%- for item in site.data.navigation %}
+    <li>
+      <a href="{{ item.url | relative_url }}"
+         {% if page.url == item.url %}class="is-active" aria-current="page"{% endif %}>
+        {{ item.title }}
+      </a>
+    </li>
+    {%- endfor %}
+  </ul>
+  <a class="btn btn-primary nav-cta" href="{{ '/contact/' | relative_url }}">Request a Quote</a>
+</nav>

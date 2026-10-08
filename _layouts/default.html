@@ -1,0 +1,30 @@
+{%- comment -%}
+  _layouts/default.html  (THE SHELL)
+  Every page uses this layout. It holds the parts that never change
+  and leaves one hole, the content tag in <main>, where each page's
+  own HTML lands.
+
+  An include tag means "paste the file from _includes/ right here".
+
+  Note: this is a Liquid comment, not an HTML comment. Liquid still
+  runs tags inside HTML comments, so explanations go in here instead.
+{%- endcomment -%}
+<!doctype html>
+<html lang="{{ site.lang }}">
+<head>
+  {% include head.html %}
+</head>
+<body class="page-{{ page.slug | default: 'home' }}">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  {% include header.html %}
+
+  <main id="main">
+    {{ content }}
+  </main>
+
+  {% include footer.html %}
+
+  <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
+</body>
+</html>

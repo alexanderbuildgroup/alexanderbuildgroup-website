@@ -1,0 +1,49 @@
+# ------------------------------------------------------------
+# _config.yml
+# Site-wide settings. Jekyll reads this once when it builds.
+# Anything here is available in templates as {{ site.something }}.
+# NOTE: changes to this file need a server restart locally.
+# ------------------------------------------------------------
+
+title: Alexander Build Group
+tagline: HCAI Class A Inspector of Record
+description: >-
+  Healthcare construction inspection, construction management, plan review,
+  and consulting on the San Francisco Peninsula and throughout the Bay Area. HCAI Class A Inspector of Record A21409.
+url: "https://alexanderbuildgroup.com"
+baseurl: ""
+lang: en-US
+
+# Used by head.html for social cards
+og_image: /images/alexhomepagehero.webp
+logo: /abglogo.png
+
+# Formspree form ID: the letters after /f/ in your Formspree form's
+# endpoint URL (for example https://formspree.io/f/xabcdwxy -> xabcdwxy)
+formspree_id: "xaeqopgv"
+
+# Trust signals, kept in one place so every page shows the same numbers
+credentials:
+  license: "A21409"
+  years_total: 20
+  years_ior: 5
+  certifications: 14   # B1, B2, B5, M1, M2, M5, E1, E2, E5, P1, P2, P5, C8, Plan Reviewer
+
+# Collections: a "collection" is a folder of similar content items.
+# Each file in _projects/ becomes one project. Decap CMS writes here.
+collections:
+  projects:
+    output: false   # no individual project pages, they appear in a list
+
+# Plugins supported by GitHub Pages
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Files Jekyll should not copy into the built site
+exclude:
+  - README.md
+  - WALKTHROUGH.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

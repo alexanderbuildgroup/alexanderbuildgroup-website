@@ -1,0 +1,37 @@
+{%- comment -%}
+  _includes/schema.html
+  JSON-LD structured data (ProfessionalService). Search engines read
+  this; visitors never see it. | jsonify safely quotes values.
+{%- endcomment -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": {{ site.title | jsonify }},
+  "url": {{ site.url | jsonify }},
+  "logo": {{ site.logo | absolute_url | jsonify }},
+  "image": {{ site.og_image | absolute_url | jsonify }},
+  "email": {{ site.data.settings.email | jsonify }},
+  "telephone": {{ site.data.settings.phone | jsonify }},
+  "description": {{ site.description | jsonify }},
+  "areaServed": [
+    { "@type": "Place", "name": "San Francisco Peninsula" },
+    { "@type": "Place", "name": "San Francisco Bay Area" }
+  ],
+  "hasCredential": {
+    "@type": "EducationalOccupationalCredential",
+    "name": "HCAI Class A Inspector of Record",
+    "identifier": {{ site.credentials.license | jsonify }}
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Inspector of Record (IOR) Services" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Construction Management Services" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Commercial Plan Review Services" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Construction Consulting" } }
+    ]
+  }
+}
+</script>

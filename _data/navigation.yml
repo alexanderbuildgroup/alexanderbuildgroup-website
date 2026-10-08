@@ -1,0 +1,10 @@
+# The menu. nav.html loops over this list, so adding a page to the
+# menu means adding two lines here, not editing HTML.
+- title: Home
+  url: /
+- title: Services
+  url: /services/
+- title: Experience & Credentials
+  url: /experience/
+- title: Contact
+  url: /contact/

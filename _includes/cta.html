@@ -1,0 +1,17 @@
+{%- comment -%}
+  _includes/cta.html
+  The navy "get in touch" band that closes most pages.
+  Parameters (all optional, with defaults):
+    title   heading text
+    text    supporting line
+    button  button label
+  The "default" filter supplies fallback words when a page
+  doesn't pass its own.
+{%- endcomment -%}
+<section class="cta-band">
+  <div class="container cta-inner reveal">
+    <h2>{{ include.title | default: "Have a healthcare project coming up?" }}</h2>
+    <p>{{ include.text | default: "Share your scope and timeline, and we'll follow up with availability and a quote." }}</p>
+    <a class="btn btn-gold" href="{{ '/contact/' | relative_url }}">{{ include.button | default: "Start the Conversation" }}</a>
+  </div>
+</section>

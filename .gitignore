@@ -1,0 +1,15 @@
+# Files Git should NOT track.
+
+# Jekyll's build output and caches: regenerated on every build,
+# and GitHub Pages builds its own copy.
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# Installed gems, if Bundler ever puts them in the project
+vendor/
+.bundle/
+
+# Mac system files
+.DS_Store

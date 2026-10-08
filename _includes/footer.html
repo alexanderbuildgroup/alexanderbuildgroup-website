@@ -1,0 +1,49 @@
+{%- comment -%}
+  _includes/footer.html
+  Two compact rows:
+    1. Brand (left) and page links (right)
+    2. Email and phone (left), copyright (right)
+  Then the image disclosure in small print.
+  Email and phone come from _data/settings.yml, which Alex edits in
+  the CMS. The year comes from the build date, so it never goes stale.
+{%- endcomment -%}
+{%- assign s = site.data.settings -%}
+<footer class="site-footer">
+  <div class="container">
+
+    <div class="footer-row footer-top">
+      <a class="footer-brand-block" href="{{ '/' | relative_url }}" aria-label="{{ site.title }} home">
+        {%- comment -%}
+          The logo sits on a light circle so its navy parts stay visible
+          against the dark footer. alt="" because the name is right beside it.
+        {%- endcomment -%}
+        <span class="footer-logo">
+          <img src="{{ site.logo | relative_url }}" alt="" width="40" height="40" loading="lazy">
+        </span>
+        <span>
+          <span class="footer-brand">{{ site.title }}</span>
+          <span class="footer-license">HCAI Class A Inspector of Record · No. {{ site.credentials.license }}</span>
+        </span>
+      </a>
+      <nav class="footer-nav" aria-label="Footer">
+        <ul>
+          {%- for item in site.data.navigation %}
+          <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+          {%- endfor %}
+        </ul>
+      </nav>
+    </div>
+
+    <div class="footer-row footer-bottom">
+      <p class="footer-contact">
+        <a href="mailto:{{ s.email }}">{{ s.email }}</a>
+        <span class="footer-dot" aria-hidden="true">·</span>
+        <a href="tel:{{ s.phone | remove: ' ' | remove: '(' | remove: ')' | remove: '-' }}">{{ s.phone }}</a>
+      </p>
+      <p class="footer-copy">&copy; {{ "now" | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
+    </div>
+
+    <p class="disclosure">Select imagery on this website is illustrative. Project descriptions reflect actual professional experience.</p>
+
+  </div>
+</footer>

@@ -1,0 +1,21 @@
+{%- comment -%}
+  _includes/header.html
+  The bar at the top of every page: logo on the left, menu on the right.
+  The menu itself lives in its own include (nav.html) so the header
+  stays short and the nav can be reused elsewhere if needed.
+{%- endcomment -%}
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ site.title }} home">
+      <img src="{{ site.logo | relative_url }}" alt="{{ site.title }} logo" width="48" height="48">
+      <span class="brand-name">{{ site.title }}</span>
+    </a>
+
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+      <span class="sr-only">Menu</span>
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+    </button>
+
+    {% include nav.html %}
+  </div>
+</header>

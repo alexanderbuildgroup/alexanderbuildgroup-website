@@ -1,0 +1,4 @@
+# Site Settings, editable by Alex in Decap CMS.
+# Templates read these as {{ site.data.settings.email }}.
+email: alex@alexanderbuildgroup.com
+phone: "(555) 555-0123"   # placeholder until Alex sends the real number

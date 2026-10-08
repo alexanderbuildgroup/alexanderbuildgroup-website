@@ -1,0 +1,131 @@
+---
+layout: default
+title: Experience & Credentials
+description: HCAI Class A Inspector of Record A21409 with 20 years in construction. Selected healthcare projects at San Francisco General, Laguna Honda, and Chinese Hospital, plus 14 inspection and plan review certifications.
+slug: experience
+permalink: /experience/
+image: /images/alexhospital.webp
+---
+{%- comment -%}
+  EXPERIENCE & CREDENTIALS PAGE
+  Sections:
+    1. Page hero
+    2. Credential spotlight (license card + photo)
+    3. Certifications      (from _data/certifications.yml)
+    4. Photo mosaic        (three facility photos)
+    5. Selected projects   (from the _projects folder, which Alex edits in the CMS)
+    6. Firms band          (navy with blueprint grid, from _data/firms.yml)
+    7. CTA
+{%- endcomment -%}
+{%- assign c = site.credentials -%}
+
+{% include page-hero.html
+   label="Experience & Credentials"
+   title="Proven inside active hospitals."
+   intro="Two decades in construction, five years as an HCAI Class A Inspector of Record, and a record of complex healthcare projects across San Francisco." %}
+
+<!-- 2. CREDENTIAL SPOTLIGHT -->
+<section class="section spotlight">
+  <div class="container spotlight-grid">
+    <div class="credential-card reveal">
+      <p class="label">Primary credential</p>
+      <h2>HCAI Class A Inspector of Record</h2>
+      <p class="credential-no">Certification No. {{ c.license }}</p>
+      <p>Class A is HCAI's highest level of Inspector of Record certification, qualifying us to inspect healthcare projects of every type and scale, from targeted upgrades to major renovations.</p>
+      <dl class="credential-stats">
+        <div><dt>{{ c.years_total }}</dt><dd>Years in construction</dd></div>
+        <div><dt>{{ c.years_ior }}</dt><dd>Years as an Inspector of Record</dd></div>
+        <div><dt>{{ c.certifications }}</dt><dd>Additional certifications</dd></div>
+      </dl>
+    </div>
+    <figure class="spotlight-photo framed reveal">
+      <img src="{{ '/images/alexhospital.webp' | relative_url }}"
+           alt="Alex Antz outside a hospital building"
+           loading="lazy" decoding="async">
+    </figure>
+  </div>
+</section>
+
+<!-- 3. CERTIFICATIONS -->
+<section class="section certs">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="label">Certifications</p>
+      <h2>Certified across every trade on site.</h2>
+    </div>
+    <div class="cert-grid">
+      {%- for group in site.data.certifications %}
+      <div class="cert-group reveal">
+        <h3>{{ group.group }}</h3>
+        <ul>
+          {%- for cert in group.items %}
+          <li><span class="cert-code">{{ cert.code }}</span>{{ cert.name }}</li>
+          {%- endfor %}
+        </ul>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- 4. PHOTO MOSAIC: one large photo, two stacked beside it -->
+<section class="mosaic-section" aria-label="In the field">
+  <div class="container mosaic">
+    <figure class="m1 reveal"><img src="{{ '/images/hospitalheroimage2.webp' | relative_url }}" alt="Hospital campus building" loading="lazy" decoding="async"></figure>
+    <figure class="m2 reveal"><img src="{{ '/images/healthcaremechanicalsystemsinspection.webp' | relative_url }}" alt="Inspector reviewing mechanical systems in a hospital plant room" loading="lazy" decoding="async"></figure>
+    <figure class="m3 reveal"><img src="{{ '/images/hospitalgeneratoryard.webp' | relative_url }}" alt="Emergency generator yard beside a hospital building" loading="lazy" decoding="async"></figure>
+  </div>
+</section>
+
+<!-- 5. SELECTED PROJECTS -->
+{%- comment -%}
+  site.projects is every file in the _projects folder.
+  sort: "date" orders them oldest to newest, and reverse flips that,
+  so a project Alex adds in the CMS appears at the top automatically.
+  Fields that are blank (like a missing year) are simply skipped.
+  The facility is the headline; if a project has no facility,
+  the project name takes its place.
+{%- endcomment -%}
+{%- assign projects = site.projects | sort: "date" | reverse -%}
+<section class="section projects">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="label">Selected projects</p>
+      <h2>Healthcare and institutional work we've inspected.</h2>
+    </div>
+    <ol class="project-list">
+      {%- for project in projects %}
+      <li class="project reveal">
+        <p class="project-year">{% if project.year != "" %}{{ project.year }}{% endif %}</p>
+        <div class="project-body">
+          {%- if project.facility != "" %}
+          <h3>{{ project.facility }}</h3>
+          <p class="project-name">{{ project.name }}</p>
+          {%- else %}
+          <h3>{{ project.name }}</h3>
+          {%- endif %}
+          <p class="project-desc">{{ project.description }}</p>
+        </div>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+
+<!-- 6. FIRMS BAND -->
+<section class="firms-feature blueprint blueprint-dark">
+  <div class="container firms-feature-inner reveal">
+    <p class="label">Referral network</p>
+    <h2>Referred by project teams at leading design and engineering firms.</h2>
+    <ul class="firm-list firm-list-light">
+      {%- for firm in site.data.firms %}
+      <li>{{ firm }}</li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+{% include cta.html
+   title="Bring this experience to your next project."
+   text="Tell us about your facility, scope, and schedule. We'll follow up with availability and a quote."
+   button="Request a Quote" %}

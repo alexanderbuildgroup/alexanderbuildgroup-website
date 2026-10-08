@@ -1,0 +1,29 @@
+{%- comment -%}
+  _includes/head.html
+  Everything inside <head>. Per-page values come from each page's
+  front matter (title, description). jekyll-seo-tag turns those into
+  <title>, meta description, canonical, Open Graph and Twitter tags.
+{%- endcomment -%}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('js');</script>
+
+{% seo %}
+
+<!-- Favicons (files already in the project root) -->
+<link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ '/favicon-32x32.png' | relative_url }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ '/favicon-16x16.png' | relative_url }}">
+<link rel="apple-touch-icon" href="{{ '/apple-touch-icon.png' | relative_url }}">
+<link rel="manifest" href="{{ '/site.webmanifest' | relative_url }}">
+<meta name="theme-color" content="#022E66">
+
+<!-- Fonts: Source Serif 4 (headlines), Barlow (everything else) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+
+{%- comment -%} Structured data for search engines, see schema.html {%- endcomment -%}
+{% include schema.html %}

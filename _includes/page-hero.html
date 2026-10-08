@@ -1,0 +1,21 @@
+{%- comment -%}
+  _includes/page-hero.html
+  The light title banner (with blueprint texture) at the top of every inner page
+  (Services, Experience, Contact).
+
+  This include takes PARAMETERS. The page that uses it writes:
+    include page-hero.html label="Services" title="..." intro="..."
+  and inside this file those values are read as include.label,
+  include.title, and include.intro. Same banner, different words.
+{%- endcomment -%}
+<section class="page-hero blueprint">
+  <div class="container">
+    {%- if include.label %}
+    <p class="label">{{ include.label }}</p>
+    {%- endif %}
+    <h1>{{ include.title }}</h1>
+    {%- if include.intro %}
+    <p class="lede">{{ include.intro }}</p>
+    {%- endif %}
+  </div>
+</section>

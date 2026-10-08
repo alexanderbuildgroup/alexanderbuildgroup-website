@@ -1,0 +1,102 @@
+---
+layout: default
+title: Services
+description: Inspector of Record, construction management, commercial plan review, and construction consulting for healthcare and commercial projects on the San Francisco Peninsula and across the Bay Area.
+slug: services
+# permalink sets the web address. Without it, this page would live at
+# /services.html; with it, the address is the cleaner /services/
+permalink: /services/
+image: /images/alexplans2.webp
+---
+{%- comment -%}
+  SERVICES PAGE
+  Almost everything here is generated from _data/services.yml.
+  Each service picks one of three layouts:
+    side   photo beside the text   (vertical photos)
+    wide   photo as a full band    (layout: wide in services.yml)
+    panel  framed blueprint panel  (no photo)
+  The list and closing line come from service-includes.html.
+{%- endcomment -%}
+
+{% include page-hero.html
+   label="Services"
+   title="Oversight for projects where compliance isn't optional."
+   intro="From Inspector of Record services on HCAI projects to plan review and construction management, we help owners, contractors, and design teams build it right the first time." %}
+
+<nav class="jump-links" aria-label="Services on this page">
+  <div class="container">
+    <ul>
+      {%- for service in site.data.services %}
+      <li><a href="#{{ service.id }}"><span class="jump-num">{{ forloop.index | prepend: '0' }}</span>{{ service.title }}</a></li>
+      {%- endfor %}
+    </ul>
+  </div>
+</nav>
+
+{%- for service in site.data.services %}
+{%- comment -%} Decide this service's layout {%- endcomment -%}
+{%- if service.image == nil %}
+  {%- assign layout_type = "panel" %}
+{%- elsif service.layout == "wide" %}
+  {%- assign layout_type = "wide" %}
+{%- else %}
+  {%- assign layout_type = "side" %}
+{%- endif %}
+
+<section id="{{ service.id }}" class="service-detail is-{{ layout_type }}">
+  <div class="container">
+
+  {%- case layout_type %}
+
+  {%- when "side" %}
+    <div class="service-side-grid">
+      <div class="service-copy reveal">
+        <p class="service-num">{{ forloop.index | prepend: '0' }}</p>
+        <h2>{{ service.title }}</h2>
+        {%- for paragraph in service.intro %}
+        <p>{{ paragraph }}</p>
+        {%- endfor %}
+        {% include service-includes.html service=service %}
+      </div>
+      <figure class="service-photo framed reveal">
+        <img src="{{ '/images/' | append: service.image | relative_url }}" alt="{{ service.alt }}" loading="lazy" decoding="async">
+      </figure>
+    </div>
+
+  {%- when "wide" %}
+    <div class="service-copy reveal">
+      <p class="service-num">{{ forloop.index | prepend: '0' }}</p>
+      <h2>{{ service.title }}</h2>
+      {%- for paragraph in service.intro %}
+      <p>{{ paragraph }}</p>
+      {%- endfor %}
+    </div>
+    <figure class="service-band framed reveal">
+      <img src="{{ '/images/' | append: service.image | relative_url }}" alt="{{ service.alt }}" loading="lazy" decoding="async">
+    </figure>
+    <div class="service-copy reveal">
+      {% include service-includes.html service=service %}
+    </div>
+
+  {%- when "panel" %}
+    <div class="service-panel blueprint reveal">
+      <div class="service-copy">
+        <p class="service-num">{{ forloop.index | prepend: '0' }}</p>
+        <h2>{{ service.title }}</h2>
+        {%- for paragraph in service.intro %}
+        <p>{{ paragraph }}</p>
+        {%- endfor %}
+        {% include service-includes.html service=service %}
+      </div>
+    </div>
+
+  {%- endcase %}
+
+  </div>
+</section>
+{%- endfor %}
+
+{% include cta.html
+   title="Not sure which service fits your project?"
+   text="Tell us what you're building and where it stands. We'll recommend the right scope and send a quote."
+   button="Request a Quote" %}

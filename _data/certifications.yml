@@ -1,0 +1,46 @@
+# Certifications, grouped by discipline for the Experience page.
+# Code-controlled (not in the CMS). The total should match
+# "certifications" in _config.yml (currently 14).
+
+- group: Building
+  items:
+    - code: B1
+      name: Residential Building Inspector
+    - code: B2
+      name: Commercial Building Inspector
+    - code: B5
+      name: Combination Inspector
+
+- group: Mechanical
+  items:
+    - code: M1
+      name: Residential Mechanical Inspector
+    - code: M2
+      name: Commercial Mechanical Inspector
+    - code: M5
+      name: Combination Inspector
+
+- group: Electrical
+  items:
+    - code: E1
+      name: Residential Electrical Inspector
+    - code: E2
+      name: Commercial Electrical Inspector
+    - code: E5
+      name: Combination Inspector
+
+- group: Plumbing
+  items:
+    - code: P1
+      name: Residential Plumbing Inspector
+    - code: P2
+      name: Commercial Plumbing Inspector
+    - code: P5
+      name: Combination Inspector
+
+- group: Combination & Plan Review
+  items:
+    - code: C8
+      name: Combination Inspector
+    - code: PR
+      name: Commercial and Residential Plan Reviewer

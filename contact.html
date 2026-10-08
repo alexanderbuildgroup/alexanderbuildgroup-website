@@ -1,0 +1,114 @@
+---
+layout: default
+title: Contact
+description: Request a quote from Alexander Build Group for Inspector of Record services, construction management, plan review, or construction consulting on your Peninsula or Bay Area project.
+slug: contact
+permalink: /contact/
+image: /images/alexsitting.webp
+---
+{%- comment -%}
+  CONTACT PAGE
+    1. Page hero
+    2. Two columns: the form (left) and direct contact details (right)
+
+  The form posts to Formspree. Its ID lives in _config.yml
+  (formspree_id), so it only needs to be set in one place.
+  main.js sends the form in the background and shows the thank-you
+  message on this page. Without JavaScript it still works, using
+  Formspree's own confirmation page instead.
+{%- endcomment -%}
+{%- assign s = site.data.settings -%}
+
+{% include page-hero.html
+   label="Contact"
+   title="Let's talk about your project."
+   intro="Share a few details about your project and we'll follow up with availability and a quote." %}
+
+<section class="section contact">
+  <div class="container contact-grid">
+
+    <!-- FORM -->
+    <div class="contact-form-card reveal">
+      <form class="contact-form" action="https://formspree.io/f/{{ site.formspree_id }}" method="POST" data-ajax>
+        <input type="hidden" name="_subject" value="New project inquiry from alexanderbuildgroup.com">
+        {%- comment -%} Honeypot: hidden from people, filled in by spam bots, so Formspree discards those. {%- endcomment -%}
+        <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <div class="field-row">
+          <div class="field">
+            <label for="name">Name <span aria-hidden="true">*</span></label>
+            <input id="name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="email">Email <span aria-hidden="true">*</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="project-type">Project type</label>
+            <select id="project-type" name="project_type">
+              <option value="">Select a service</option>
+              {%- for service in site.data.services %}
+              <option>{{ service.title }}</option>
+              {%- endfor %}
+              <option>Not sure yet</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="message">Project details <span aria-hidden="true">*</span></label>
+          <textarea id="message" name="message" rows="6" required placeholder="Facility, location, scope, and timeline"></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn btn-primary" type="submit">Send Inquiry</button>
+          <p class="form-note">* Required</p>
+        </div>
+        <p class="form-error" role="alert" hidden>
+          Something went wrong sending your message. Please try again, or email us directly at
+          <a href="mailto:{{ s.email }}">{{ s.email }}</a>.
+        </p>
+      </form>
+
+      <div class="form-success" role="status" hidden>
+        <p class="label">Message sent</p>
+        <h2>Thank you. We'll be in touch.</h2>
+        <p>Your inquiry is on its way. We'll follow up by email with availability and next steps.</p>
+      </div>
+    </div>
+
+    <!-- DIRECT CONTACT -->
+    <aside class="contact-aside reveal">
+      <figure class="contact-photo framed">
+        <img src="{{ '/images/alexsitting.webp' | relative_url }}"
+             alt="Alex Antz, founder of Alexander Build Group"
+             loading="lazy" decoding="async">
+      </figure>
+
+      <div class="contact-details">
+        <p class="label">Direct contact</p>
+        <p class="contact-line"><a href="mailto:{{ s.email }}">{{ s.email }}</a></p>
+        <p class="contact-line"><a href="tel:{{ s.phone | remove: ' ' | remove: '(' | remove: ')' | remove: '-' }}">{{ s.phone }}</a></p>
+        <p class="contact-region">Serving the San Francisco Peninsula and projects throughout the greater Bay Area.</p>
+      </div>
+
+      <div class="contact-tips">
+        <p class="label">Helpful to include</p>
+        <ul>
+          <li>Facility name and location</li>
+          <li>Type of project and approximate size</li>
+          <li>Where the project stands today</li>
+          <li>Target start date</li>
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+</section>
