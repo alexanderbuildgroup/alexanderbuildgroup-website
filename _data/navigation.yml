@@ -1,10 +1,12 @@
 # The menu. nav.html loops over this list, so adding a page to the
 # menu means adding two lines here, not editing HTML.
+# "short" (optional) is a shorter label used in the footer.
 - title: Home
   url: /
 - title: Services
   url: /services/
 - title: Experience & Credentials
+  short: Experience
   url: /experience/
 - title: Contact
   url: /contact/

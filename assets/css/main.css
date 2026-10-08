@@ -4,6 +4,8 @@
    ------------------------------------------------------------ */
    :root {
     --navy: #022E66;
+    --navy-soft: #1A355C;  /* muted navy for large background areas */
+    --navy-deep: #12284A;  /* footer */
     --red: #DE0128;
     --gold: #C3944E;
     --bg: #FAFAF8;
@@ -129,14 +131,14 @@
   /* Phones: the photo becomes its own block on top, centered on Alex,
      fading into navy, with the headline underneath instead of over him. */
   @media (max-width: 700px) {
-    .hero { display: block; min-height: 0; padding-top: 0; background: var(--navy); }
+    .hero { display: block; min-height: 0; padding-top: 0; background: var(--navy-soft); }
     .hero-bg {
       position: relative; inset: auto; z-index: -2;
       height: min(110vw, 440px); object-position: 72% 25%;
     }
     .hero::before {
       bottom: auto; height: min(110vw, 440px);
-      background: linear-gradient(180deg, rgba(2,46,102,0) 55%, var(--navy) 100%);
+      background: linear-gradient(180deg, rgba(26,53,92,0) 55%, var(--navy-soft) 100%);
     }
     .hero-content { margin-top: -48px; }
   }
@@ -216,12 +218,17 @@
   @media (max-width: 900px) {
     .firms-row { flex-direction: column; align-items: flex-start; }
     .firms-label { max-width: none; }
-    .firm-list li { flex: 0 0 auto; text-align: left; padding: .25rem 1rem; }
-    .firm-list li:first-child { padding-left: 0; }
+    .firm-list { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: .9rem 2rem; }
+    .firm-list li { padding: 0; text-align: left; }
+    .firm-list li + li { border-left: 0; }
+  }
+  @media (max-width: 600px) {
+    .firm-list { grid-template-columns: 1fr 1fr; gap: .9rem 1.25rem; }
+    .firm-list li { font-size: .8125rem; white-space: normal; }
   }
   
   /* 6. CTA band */
-  .cta-band { background: var(--navy); color: rgba(255,255,255,.85); padding: clamp(72px, 9vw, 120px) 0; text-align: center; }
+  .cta-band { background: var(--navy-soft); color: rgba(255,255,255,.85); padding: clamp(72px, 9vw, 120px) 0; text-align: center; }
   .cta-inner { max-width: 960px; } /* wide enough for the heading to fit on one line on desktop */
   .cta-band h2 { color: var(--white); margin-top: 0; text-wrap: balance; } /* if it must wrap (phones), split lines evenly */
   .cta-band p { margin: 0 auto 2rem; max-width: 48ch; }
@@ -410,7 +417,7 @@
   
   /* Firms band: deep navy with the blueprint grid in white */
   .firms-feature { position: relative; overflow: hidden; padding: clamp(80px, 10vw, 136px) 0; text-align: center; color: var(--white);
-    background: linear-gradient(180deg, #011E45, var(--navy)); }
+    background: linear-gradient(180deg, var(--navy-deep), var(--navy-soft)); }
   .blueprint-dark::before {
     background-image:
       linear-gradient(rgba(255,255,255,.07) 1px, transparent 1px),
@@ -422,8 +429,6 @@
   }
   .firms-feature-inner { max-width: 960px; }
   .firms-feature h2 { color: var(--white); margin: 0 auto 2.5rem; max-width: 26ch; text-wrap: balance; }
-  .firm-list-light { justify-content: center; }
-  .firm-list-light li { color: var(--white); opacity: .92; flex: 0 1 auto; }
   .firms-feature + .cta-band { border-top: 1px solid rgba(255,255,255,.12); }
   
   @media (max-width: 900px) {
@@ -496,12 +501,60 @@
     .contact-aside { grid-template-columns: 1fr; }
   }
   
+  /* Experience page: firm wall, each firm in its own bordered tile */
+  .firm-wall {
+    list-style: none; margin: 0 auto; padding: 0;
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    border-top: 1px solid rgba(255,255,255,.16); border-left: 1px solid rgba(255,255,255,.16);
+  }
+  .firm-wall li {
+    position: relative; display: flex; align-items: center; justify-content: center; text-align: center;
+    min-height: 104px; padding: 1.25rem 1rem;
+    border-right: 1px solid rgba(255,255,255,.16); border-bottom: 1px solid rgba(255,255,255,.16);
+    font: 600 .875rem/1.35 var(--font-body); letter-spacing: .14em; text-transform: uppercase; color: var(--white);
+    transition: background-color .3s var(--ease), color .3s var(--ease);
+  }
+  .firm-wall li::before { /* gold line that grows in on hover */
+    content: ""; position: absolute; top: -1px; left: 50%; width: 0; height: 2px; background: var(--gold);
+    transition: width .35s var(--ease), left .35s var(--ease);
+  }
+  .firm-wall li:hover { background: rgba(255,255,255,.04); color: var(--gold); }
+  .firm-wall li:hover::before { width: 100%; left: 0; }
+  @media (max-width: 900px) {
+    .firm-wall { grid-template-columns: repeat(6, 1fr); }
+    .firm-wall li { grid-column: span 2; }
+    .firm-wall li:nth-child(4), .firm-wall li:nth-child(5) { grid-column: span 3; }
+  }
+  @media (max-width: 600px) {
+    .firm-wall { grid-template-columns: 1fr 1fr; }
+    .firm-wall li, .firm-wall li:nth-child(4) { grid-column: auto; min-height: 84px; font-size: .8125rem; }
+    .firm-wall li:nth-child(5) { grid-column: 1 / -1; }
+  }
+  
+  /* Long and short wording: full text on desktop, shorter on phones */
+  .short-form { display: none; text-decoration: none; }
+  .nowrap { white-space: nowrap; }
+  @media (max-width: 700px) {
+    .long-form { display: none; }
+    .short-form { display: inline; }
+  }
+  
+  /* Footer on phones: centered, one line of links */
+  @media (max-width: 700px) {
+    .site-footer .container { text-align: center; }
+    .footer-row { align-items: center; }
+    .footer-brand-block { flex-direction: column; gap: .75rem; }
+    .footer-license { white-space: nowrap; }
+    .footer-nav ul { justify-content: center; flex-wrap: nowrap; gap: 1.25rem; }
+    .footer-nav a { font-size: .75rem; letter-spacing: .06em; white-space: nowrap; }
+  }
+  
   /* Scroll reveal: only runs once JS adds .js to <html> */
   .js .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
   .js .reveal.is-visible { opacity: 1; transform: none; }
   
   /* Footer: deeper navy than the CTA band above, two compact rows */
-  .site-footer { background: #011E45; color: rgba(255,255,255,.72); padding: 48px 0 28px; font-size: .875rem; }
+  .site-footer { background: var(--navy-deep); color: rgba(255,255,255,.72); padding: 48px 0 28px; font-size: .875rem; }
   .site-footer p { margin: 0; }
   .site-footer a { color: rgba(255,255,255,.85); text-decoration: none; transition: color .2s var(--ease); }
   .site-footer a:hover { color: var(--gold); }
@@ -525,8 +578,7 @@
   .footer-copy { color: rgba(255,255,255,.55); }
   .disclosure { font-size: .75rem; color: rgba(255,255,255,.45); }
   @media (max-width: 700px) {
-    .footer-row { flex-direction: column; align-items: flex-start; }
-    .footer-nav ul { gap: .5rem 1.5rem; }
+    .footer-row { flex-direction: column; align-items: center; }
   }
   
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }

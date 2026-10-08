@@ -22,13 +22,13 @@
         </span>
         <span>
           <span class="footer-brand">{{ site.title }}</span>
-          <span class="footer-license">HCAI Class A Inspector of Record · No. {{ site.credentials.license }}</span>
+          <span class="footer-license">HCAI Class A <span class="long-form">Inspector of Record</span><abbr class="short-form" title="Inspector of Record">IOR</abbr> · No. {{ site.credentials.license }}</span>
         </span>
       </a>
       <nav class="footer-nav" aria-label="Footer">
         <ul>
           {%- for item in site.data.navigation %}
-          <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+          <li><a href="{{ item.url | relative_url }}">{{ item.short | default: item.title }}</a></li>
           {%- endfor %}
         </ul>
       </nav>
@@ -43,7 +43,7 @@
       <p class="footer-copy">&copy; {{ "now" | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
     </div>
 
-    <p class="disclosure">Select imagery on this website is illustrative. Project descriptions reflect actual professional experience.</p>
+    <p class="disclosure">Some images are illustrative. All projects described are real.</p>
 
   </div>
 </footer>
