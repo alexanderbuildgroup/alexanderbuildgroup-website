@@ -4,80 +4,80 @@
 # Everything not listed here stays code-controlled.
 # ------------------------------------------------------------
 
-backend:
-  name: github
-  repo: alexanderbuildgroup/alexanderbuildgroup-website
-  branch: main
-  # The Cloudflare Worker that handles the GitHub login.
-  # Paste the worker's address here (no slash at the end).
-  base_url: https://PASTE-YOUR-WORKER-URL-HERE
-  # Commit messages Alex's edits will show in GitHub's history
-  commit_messages:
-    create: "Add project: {{slug}}"
-    update: "Update {{collection}}: {{slug}}"
-    delete: "Remove project: {{slug}}"
-
-site_url: https://alexanderbuildgroup.com
-display_url: https://alexanderbuildgroup.com
-logo_url: https://alexanderbuildgroup.com/abglogo.png
-
-# Required by Decap even though projects don't use images
-media_folder: images
-public_folder: /images
-
-collections:
-
-  # 1. PROJECTS: Alex can add, edit, and remove projects.
-  #    Each one becomes a file in the _projects folder.
-  - name: projects
-    label: Projects
-    label_singular: Project
-    folder: _projects
-    create: true
-    delete: true
-    slug: "{{year}}-{{fields.facility}}"
-    identifier_field: facility
-    summary: "{{fields.facility}}: {{fields.name}} ({{fields.year}})"
-    sortable_fields: ["date", "facility"]
-    fields:
-      - label: Facility
-        name: facility
-        widget: string
-        hint: "Shown as the headline, e.g. Laguna Honda Hospital"
-      - label: Project name
-        name: name
-        widget: string
-        hint: "Shown under the facility, e.g. Various Projects"
-      - label: Year(s)
-        name: year
-        widget: string
-        hint: "e.g. 2024, or 2022 to 2024"
-      - label: Description
-        name: description
-        widget: text
-        hint: "Your role and the work involved. One short paragraph."
-      - label: Date added
-        name: date
-        widget: datetime
-        default: "{{now}}"
-        date_format: "YYYY-MM-DD"
-        time_format: false
-        hint: "Controls the order on the site (newest first). Leave as is for new projects."
-
-  # 2. SITE SETTINGS: email and phone only.
-  - name: settings
-    label: Site Settings
-    editor:
-      preview: false
-    files:
-      - label: Contact Info
-        name: contact
-        file: _data/settings.yml
-        fields:
-          - label: Email
-            name: email
-            widget: string
-          - label: Phone
-            name: phone
-            widget: string
-            hint: "Format: (650) 555-0123"
+  backend:
+    name: github
+    repo: alexanderbuildgroup/alexanderbuildgroup-website
+    branch: main
+    # The Cloudflare Worker that handles the GitHub login.
+    # (Cloudflare account: montellanos01, worker: alexanderbuildgroup-cms)
+    base_url: https://alexanderbuildgroup-cms.montellanos01.workers.dev
+    # Commit messages Alex's edits will show in GitHub's history
+    commit_messages:
+      create: "Add project: {{slug}}"
+      update: "Update {{collection}}: {{slug}}"
+      delete: "Remove project: {{slug}}"
+  
+  site_url: https://alexanderbuildgroup.com
+  display_url: https://alexanderbuildgroup.com
+  logo_url: https://alexanderbuildgroup.com/abglogo.png
+  
+  # Required by Decap even though projects don't use images
+  media_folder: images
+  public_folder: /images
+  
+  collections:
+  
+    # 1. PROJECTS: Alex can add, edit, and remove projects.
+    #    Each one becomes a file in the _projects folder.
+    - name: projects
+      label: Projects
+      label_singular: Project
+      folder: _projects
+      create: true
+      delete: true
+      slug: "{{year}}-{{fields.facility}}"
+      identifier_field: facility
+      summary: "{{fields.facility}}: {{fields.name}} ({{fields.year}})"
+      sortable_fields: ["date", "facility"]
+      fields:
+        - label: Facility
+          name: facility
+          widget: string
+          hint: "Shown as the headline, e.g. Laguna Honda Hospital"
+        - label: Project name
+          name: name
+          widget: string
+          hint: "Shown under the facility, e.g. Various Projects"
+        - label: Year(s)
+          name: year
+          widget: string
+          hint: "e.g. 2024, or 2022 to 2024"
+        - label: Description
+          name: description
+          widget: text
+          hint: "Your role and the work involved. One short paragraph."
+        - label: Date added
+          name: date
+          widget: datetime
+          default: "{{now}}"
+          date_format: "YYYY-MM-DD"
+          time_format: false
+          hint: "Controls the order on the site (newest first). Leave as is for new projects."
+  
+    # 2. SITE SETTINGS: email and phone only.
+    - name: settings
+      label: Site Settings
+      editor:
+        preview: false
+      files:
+        - label: Contact Info
+          name: contact
+          file: _data/settings.yml
+          fields:
+            - label: Email
+              name: email
+              widget: string
+            - label: Phone
+              name: phone
+              widget: string
+              hint: "Format: (650) 555-0123"
