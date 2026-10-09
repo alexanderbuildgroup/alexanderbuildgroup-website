@@ -21,9 +21,12 @@
   display_url: https://alexanderbuildgroup.com
   logo_url: https://alexanderbuildgroup.com/abglogo.png
   
-  # Required by Decap even though projects don't use images
-  media_folder: images
-  public_folder: /images
+  # Required by Decap even though projects don't use images.
+  # Points at its own folder on purpose, so the CMS "Media" screen
+  # can't delete or replace the site's photos in /images.
+  # Site images stay code-controlled.
+  media_folder: assets/uploads
+  public_folder: /assets/uploads
   
   collections:
   
