@@ -40,10 +40,13 @@
         <span class="footer-dot" aria-hidden="true">·</span>
         <a href="tel:{{ s.phone | remove: ' ' | remove: '(' | remove: ')' | remove: '-' }}">{{ s.phone }}</a>
       </p>
-      <p class="footer-copy">&copy; {{ "now" | date: "%Y" }} {{ site.title }}. All rights reserved. <span class="footer-dot" aria-hidden="true">·</span> <a href="{{ '/privacy/' | relative_url }}">Privacy Policy</a></p>
+      <p class="footer-copy">&copy; {{ "now" | date: "%Y" }} {{ site.title }}.<span class="long-form"> All rights reserved.</span> <span class="footer-dot" aria-hidden="true">·</span> <a href="{{ '/privacy/' | relative_url }}">Privacy Policy</a></p>
     </div>
 
-    <p class="disclosure">Some images are illustrative. All projects described are real.</p>
+    <div class="footer-legal-row">
+      <p class="disclosure">Some images are illustrative. All projects described are real.</p>
+      <p class="credit">Website by <a href="https://whiskeyandwasabi.com" target="_blank" rel="noopener">Whiskey &amp; Wasabi</a></p>
+    </div>
 
   </div>
 </footer>

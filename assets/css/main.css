@@ -586,6 +586,11 @@
   .footer-dot { margin: 0 .6rem; color: var(--gold); }
   .footer-copy { color: rgba(255,255,255,.55); }
   .disclosure { font-size: .75rem; color: rgba(255,255,255,.45); }
+  .footer-legal-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: .5rem 2rem; }
+  .credit { font-size: .75rem; color: rgba(255,255,255,.45); }
+  .site-footer .credit a { color: rgba(255,255,255,.7); border-bottom: 1px solid rgba(195,148,78,.5); }
+  .site-footer .credit a:hover { color: var(--gold); }
+  @media (max-width: 700px) { .footer-legal-row { flex-direction: column; align-items: center; } }
   @media (max-width: 700px) {
     .footer-row { flex-direction: column; align-items: center; }
   }
