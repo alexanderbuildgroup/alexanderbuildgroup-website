@@ -1,0 +1,16 @@
+{%- comment -%}
+  _includes/analytics.html
+  Google Analytics (GA4). Loads only when:
+    1. a Measurement ID is set in _config.yml (google_analytics), and
+    2. the site is built for production (the live site on GitHub Pages).
+  So your local previews at localhost:4000 never count as visits.
+{%- endcomment -%}
+{%- if site.google_analytics and jekyll.environment == "production" -%}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '{{ site.google_analytics }}');
+</script>
+{%- endif -%}

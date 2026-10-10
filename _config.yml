@@ -21,6 +21,7 @@ logo: /abglogo.png
 # Formspree form ID: the letters after /f/ in your Formspree form's
 # endpoint URL (for example https://formspree.io/f/xabcdwxy -> xabcdwxy)
 formspree_id: "xaeqopgv"
+google_analytics: "G-7DG8JT1V7W"
 
 # Trust signals, kept in one place so every page shows the same numbers
 credentials:

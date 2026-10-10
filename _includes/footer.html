@@ -40,7 +40,7 @@
         <span class="footer-dot" aria-hidden="true">·</span>
         <a href="tel:{{ s.phone | remove: ' ' | remove: '(' | remove: ')' | remove: '-' }}">{{ s.phone }}</a>
       </p>
-      <p class="footer-copy">&copy; {{ "now" | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
+      <p class="footer-copy">&copy; {{ "now" | date: "%Y" }} {{ site.title }}. All rights reserved. <span class="footer-dot" aria-hidden="true">·</span> <a href="{{ '/privacy/' | relative_url }}">Privacy Policy</a></p>
     </div>
 
     <p class="disclosure">Some images are illustrative. All projects described are real.</p>

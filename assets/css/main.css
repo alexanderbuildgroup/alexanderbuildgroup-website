@@ -531,6 +531,15 @@
     .firm-wall li:nth-child(5) { grid-column: 1 / -1; }
   }
   
+  /* Privacy policy: a single comfortable reading column */
+  .legal-body { max-width: 720px; }
+  .legal-updated { margin: 0 0 2rem; font-size: .875rem; color: #4A4F57; }
+  .legal-body h2 { font-size: clamp(1.25rem, 2.4vw, 1.5rem); margin: 2.5rem 0 .75rem; }
+  .legal-body p { margin: 0 0 1rem; color: var(--ink); }
+  .legal-body ul { margin: 0 0 1rem; padding-left: 1.25rem; }
+  .legal-body li { margin-bottom: .4rem; }
+  .legal-body a { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--gold); }
+  
   /* Long and short wording: full text on desktop, shorter on phones */
   .short-form { display: none; text-decoration: none; }
   .nowrap { white-space: nowrap; }

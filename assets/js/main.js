@@ -55,6 +55,10 @@ document.addEventListener('DOMContentLoaded', () => {
         form.reset();
         form.hidden = true;
         if (success) success.hidden = false;
+        // Count the inquiry as a lead in Google Analytics (if it's loaded)
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'generate_lead', { form_name: 'contact' });
+        }
       } catch (err) {
         if (error) error.hidden = false;
       } finally {
