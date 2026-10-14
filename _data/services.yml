@@ -21,7 +21,7 @@
 
 - id: ior
   title: Inspector of Record (IOR) Services
-  summary: Inspection and documentation on HCAI-regulated healthcare projects, from first framing inspection through closeout.
+  summary: Inspection and documentation on HCAI/OSHPD-regulated healthcare projects, from first framing inspection through closeout.
   image: alexwithipadsmiling.webp
   alt: Alex Antz documenting inspection results on a tablet at a healthcare construction site
   intro:
@@ -29,11 +29,11 @@
       Our Inspector of Record (IOR) services provide thorough, reliable
       inspection and documentation throughout healthcare construction projects.
       We help ensure that work is performed in accordance with approved
-      construction documents, applicable California building codes, and HCAI
+      construction documents, applicable California building codes, and HCAI/OSHPD
       requirements.
   includes:
     - name: Specialized Healthcare Inspections
-      detail: Inspection of hospital and healthcare construction projects in accordance with HCAI requirements.
+      detail: Inspection of hospital and healthcare construction projects in accordance with HCAI/OSHPD requirements.
     - name: Structural & Architectural Inspections
       detail: Verification of structural, architectural, and building components against approved plans and specifications.
     - name: Mechanical, Electrical & Plumbing Inspections

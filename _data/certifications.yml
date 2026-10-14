@@ -1,6 +1,7 @@
 # Certifications, grouped by discipline for the Experience page.
+# Names and codes match Alex's ICC certificates (myICC).
 # Code-controlled (not in the CMS). The total should match
-# "certifications" in _config.yml (currently 14).
+# "certifications" in _config.yml (currently 17).
 
 - group: Building
   items:
@@ -9,7 +10,7 @@
     - code: B2
       name: Commercial Building Inspector
     - code: B5
-      name: Combination Inspector
+      name: Building Inspector
 
 - group: Mechanical
   items:
@@ -18,7 +19,7 @@
     - code: M2
       name: Commercial Mechanical Inspector
     - code: M5
-      name: Combination Inspector
+      name: Mechanical Inspector
 
 - group: Electrical
   items:
@@ -27,7 +28,7 @@
     - code: E2
       name: Commercial Electrical Inspector
     - code: E5
-      name: Combination Inspector
+      name: Electrical Inspector
 
 - group: Plumbing
   items:
@@ -36,11 +37,20 @@
     - code: P2
       name: Commercial Plumbing Inspector
     - code: P5
-      name: Combination Inspector
+      name: Plumbing Inspector
 
-- group: Combination & Plan Review
+- group: Combination
   items:
+    - code: R5
+      name: Residential Combination Inspector
+    - code: C5
+      name: Commercial Combination Inspector
     - code: C8
       name: Combination Inspector
-    - code: PR
-      name: Commercial and Residential Plan Reviewer
+
+- group: Plan Review
+  items:
+    - code: R3
+      name: Residential Plans Examiner
+    - code: B3
+      name: Building Plans Examiner
