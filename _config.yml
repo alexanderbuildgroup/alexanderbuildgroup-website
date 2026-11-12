@@ -6,10 +6,10 @@
 # ------------------------------------------------------------
 
 title: Alexander Build Group
-tagline: HCAI Class A Inspector of Record
+tagline: HCAI/OSHPD Class A Inspector of Record
 description: >-
   Healthcare construction inspection, construction management, plan review,
-  and consulting on the San Francisco Peninsula and throughout the Bay Area. HCAI Class A Inspector of Record A21409.
+  and consulting on the San Francisco Peninsula and throughout the Bay Area. HCAI/OSHPD Class A Inspector of Record A21409.
 url: "https://alexanderbuildgroup.com"
 baseurl: ""
 lang: en-US
@@ -28,7 +28,7 @@ credentials:
   license: "A21409"
   years_total: 20
   years_ior: 5
-  certifications: 14   # B1, B2, B5, M1, M2, M5, E1, E2, E5, P1, P2, P5, C8, Plan Reviewer
+  certifications: 17   # see _data/certifications.yml
 
 # Collections: a "collection" is a folder of similar content items.
 # Each file in _projects/ becomes one project. Decap CMS writes here.

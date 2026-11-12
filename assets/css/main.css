@@ -125,7 +125,10 @@ h3, .subhead { font-family: var(--font-body); font-weight: 600; }
   background: linear-gradient(100deg, rgba(2,46,102,.92) 0%, rgba(2,46,102,.72) 45%, rgba(2,46,102,.2) 100%);
 }
 .hero-content { width: 100%; } /* fills the row so text lines up with the logo */
-.hero h1 { color: var(--white); max-width: 15ch; }
+.hero h1 { color: var(--white); }
+.hero-headline { display: block; max-width: 15ch; }
+/* Credential line inside the h1: same look as the old label paragraph */
+.hero-eyebrow { display: block; font-family: var(--font-body); line-height: 1.65; }
 .hero .label { color: var(--gold); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2.25rem; }
 
